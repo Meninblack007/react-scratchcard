@@ -40,13 +40,13 @@ class ScratchCard extends Component {
   }
 
   getMouse(e, canvas) {
-    const {top, left} = canvas.getBoundingClientRect();
-    const scrollTop  = window.pageYOffset || document.documentElement.scrollTop;
+    const { top, left } = canvas.getBoundingClientRect();
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
 
     return {
-        x: (e.pageX || e.touches[0].clientX) - left - scrollLeft,
-        y: (e.pageY || e.touches[0].clientY) - top - scrollTop
+      x: (e.pageX || e.touches[0].clientX) - left - scrollLeft,
+      y: (e.pageY || e.touches[0].clientY) - top - scrollTop
     }
   }
 
@@ -71,6 +71,7 @@ class ScratchCard extends Component {
   }
 
   handleMouseDown(e) {
+    if (this.props.onStart) this.props.onStart();
     this.isDrawing = true;
     this.lastPoint = this.getMouse(e, this.canvas);
   }
@@ -103,6 +104,7 @@ class ScratchCard extends Component {
   }
 
   handleMouseUp() {
+    if (this.props.onStop) this.props.onStop();
     this.isDrawing = false;
   }
 
@@ -159,7 +161,9 @@ ScratchCard.propTypes = {
   width: React.PropTypes.number.isRequired,
   height: React.PropTypes.number.isRequired,
   finishPercent: React.PropTypes.number.isRequired,
-  onComplete: React.PropTypes.func
+  onComplete: React.PropTypes.func,
+  onStart: React.PropTypes.func,
+  onStop: React.PropTypes.func
 }
 
 export default ScratchCard;

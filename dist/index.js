@@ -107,6 +107,7 @@ var ScratchCard = function (_Component) {
   }, {
     key: 'handleMouseDown',
     value: function handleMouseDown(e) {
+      if (this.props.onStart) this.props.onStart();
       this.isDrawing = true;
       this.lastPoint = this.getMouse(e, this.canvas);
     }
@@ -141,6 +142,7 @@ var ScratchCard = function (_Component) {
   }, {
     key: 'handleMouseUp',
     value: function handleMouseUp() {
+      if (this.props.onStop) this.props.onStop();
       this.isDrawing = false;
     }
   }, {
@@ -205,7 +207,9 @@ ScratchCard.propTypes = {
   width: _react2.default.PropTypes.number.isRequired,
   height: _react2.default.PropTypes.number.isRequired,
   finishPercent: _react2.default.PropTypes.number.isRequired,
-  onComplete: _react2.default.PropTypes.func
+  onComplete: _react2.default.PropTypes.func,
+  onStart: _react2.default.PropTypes.func,
+  onStop: _react2.default.PropTypes.func
 };
 
 var _default = ScratchCard;
