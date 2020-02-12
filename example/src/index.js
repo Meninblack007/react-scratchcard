@@ -9,7 +9,9 @@ const settings = {
   height: 480,
   image: cardImage,
   finishPercent: 50,
-  onComplete: () => console.log('The card is now clear!')
+  onComplete: () => console.log('The card is now clear!'),
+  onStart: () => console.log('Started'),
+  onStop: () => console.log('Stopped')
 };
 
 const Example = () =>
