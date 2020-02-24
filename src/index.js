@@ -123,11 +123,15 @@ class ScratchCard extends Component {
     const canvasStyle = {
       position: 'absolute',
       top: 0,
-      zIndex: 1
+      zIndex: 1,
+      borderRadius: this.props.borderRadius,
+      overflow: 'hidden'
     }
 
     const resultStyle = {
-      visibility: this.state.loaded ? 'visible' : 'hidden'
+      visibility: this.state.loaded ? 'visible' : 'hidden',
+      borderRadius: this.props.borderRadius,
+      overflow: 'hidden'
     }
 
     const canvasProps = {
@@ -163,7 +167,8 @@ ScratchCard.propTypes = {
   finishPercent: React.PropTypes.number.isRequired,
   onComplete: React.PropTypes.func,
   onStart: React.PropTypes.func,
-  onStop: React.PropTypes.func
+  onStop: React.PropTypes.func,
+  borderRadius: React.PropTypes.number
 }
 
 export default ScratchCard;

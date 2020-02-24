@@ -5,13 +5,14 @@ import ScratchCard from '../../src';
 import cardImage from './card.jpg';
 
 const settings = {
-  width: 640,
-  height: 480,
+  width: 240,
+  height: 240,
   image: cardImage,
   finishPercent: 50,
   onComplete: () => console.log('The card is now clear!'),
   onStart: () => console.log('Started'),
-  onStop: () => console.log('Stopped')
+  onStop: () => console.log('Stopped'),
+  borderRadius: 16,
 };
 
 const Example = () =>

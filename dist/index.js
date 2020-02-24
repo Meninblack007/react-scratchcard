@@ -163,11 +163,15 @@ var ScratchCard = function (_Component) {
       var canvasStyle = {
         position: 'absolute',
         top: 0,
-        zIndex: 1
+        zIndex: 1,
+        borderRadius: this.props.borderRadius,
+        overflow: 'hidden'
       };
 
       var resultStyle = {
-        visibility: this.state.loaded ? 'visible' : 'hidden'
+        visibility: this.state.loaded ? 'visible' : 'hidden',
+        borderRadius: this.props.borderRadius,
+        overflow: 'hidden'
       };
 
       var canvasProps = {
@@ -209,7 +213,8 @@ ScratchCard.propTypes = {
   finishPercent: _react2.default.PropTypes.number.isRequired,
   onComplete: _react2.default.PropTypes.func,
   onStart: _react2.default.PropTypes.func,
-  onStop: _react2.default.PropTypes.func
+  onStop: _react2.default.PropTypes.func,
+  borderRadius: _react2.default.PropTypes.number
 };
 
 var _default = ScratchCard;
